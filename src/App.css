@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 * {
@@ -14,9 +13,10 @@
 a {
   text-decoration: none;
   color: black;
+  transition: 0.3s;
 }
 a:hover {
-  color: black;
+  color: blue;
 }
 
 div {
@@ -52,6 +52,10 @@ body {
   font-family: RobotoMedium;
   src: url(./assets/fonts/Roboto-Medium.ttf);
 }
+.Toastify {
+  z-index: 9999;
+}
+
 @media (min-width: 576px) and (max-width: 992px) {
   .col-md-1 {
     flex: 0 0 auto;
@@ -434,10 +438,10 @@ body {
   height: 100vh;
   width: 100%;
   position: fixed;
-  z-index: 9999999999999;
+  z-index: 999;
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255) !important;
+  background-color: var(--backgroundColor);
 }
 .preloaderdiv .preloader {
   border: 10px solid #f3f3f3;
@@ -485,8 +489,7 @@ input::-webkit-inner-spin-button {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: white;
-  z-index: 500000;
+  z-index: 50;
   margin: 0;
   box-shadow: 0px 1px 15px 1px #009900;
   background-color: var(--backgroundColor);
@@ -499,7 +502,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 .header .all .left {
   font-size: 22px;
@@ -508,7 +511,7 @@ input::-webkit-inner-spin-button {
   width: 40%;
 }
 .header .all .middle {
-  width: 80px;
+  width: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -521,7 +524,7 @@ input::-webkit-inner-spin-button {
   width: 40%;
 }
 .header .all .right svg {
-  font-size: 40px;
+  font-size: 30px;
   cursor: pointer;
 }
 .header .all .right .chevronspan {
@@ -558,6 +561,198 @@ input::-webkit-inner-spin-button {
   visibility: visible;
   top: 100%;
   opacity: 1;
+}
+
+main {
+  margin: 50px 0;
+}
+
+.adminhome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminhome .all {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.adminhome .all .link {
+  height: 200px;
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid #98CE00;
+  box-shadow: 0px 0px 10px 2px #FFFF00;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #009B00;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.adminhome .all .link:hover {
+  box-shadow: 0px 0px 15px 4px #FFFF00;
+  border-radius: 10px;
+  transform: scale(1.05);
+}
+
+.assess .all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--textColor);
+}
+.assess .all p {
+  font-family: var(--robotomedium);
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+.assess .all .cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--robotomedium);
+  position: relative;
+}
+.assess .all .cont .resultkeeper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 15px;
+}
+.assess .all .cont .resultkeeper .resultspanfalse {
+  color: #009900;
+  font-size: 20px;
+  text-align: center;
+  padding: 0 10px;
+  margin: 0;
+  padding: 0;
+}
+.assess .all .cont .allkeeper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  margin: 40px 0;
+  margin-bottom: 150px;
+}
+.assess .all .cont .allkeeper label {
+  font-size: 25px;
+  margin-bottom: 3px;
+  width: 100%;
+  text-align: center;
+}
+.assess .all .cont .allkeeper .dropdownkeeper {
+  font-size: 20px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 0.7px solid var(--textColor);
+  border-radius: 5px;
+  padding: 5px;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span {
+  transition: 0.1s;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span:nth-child(2) {
+  text-align: right;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_main .spanisopen svg {
+  transform: rotate(180deg);
+}
+.assess .all .cont .allkeeper .dropdownkeeper .show_dropdown {
+  top: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu {
+  margin-top: 5px;
+  cursor: pointer;
+  border: 0.7px solid var(--textColor);
+  overflow: hidden;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+  background-color: var(--backgroundColor);
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  max-height: 180px;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li {
+  padding: 5px;
+  transition: 0.1s;
+  border-bottom: 0.5px solid var(--textColor);
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:hover {
+  background-color: lightblue;
+}
+.assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:last-child {
+  border: none;
+}
+
+.notfound {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+}
+.notfound .all {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.notfound .all p {
+  text-align: center;
+  font-family: var(--robotomedium);
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.notfound .all a {
+  text-align: center;
+  color: #009900;
+  font-size: 20px;
+}
+.notfound .all span {
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  margin: 12px 0;
 }
 
 .footer {
@@ -600,7 +795,7 @@ input::-webkit-inner-spin-button {
     font-size: 14px;
   }
   .header .all .middle {
-    width: 60px;
+    width: 55px;
   }
   .header .all .right svg {
     font-size: 20px;
@@ -615,6 +810,172 @@ input::-webkit-inner-spin-button {
   }
   .header .all .right .dropdownmenu a {
     font-size: 14px;
+  }
+  .assess {
+    margin: 80px 0;
+  }
+  .assess .all {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all p {
+    font-family: var(--robotomedium);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .assess .all .cont {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: var(--robotomedium);
+    position: relative;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .resultkeeper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 15px;
+  }
+  .assess .all .cont .resultkeeper .resultspanfalse {
+    color: #009900;
+    padding: 0 10px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .assess .all .cont .resultkeeper .resultspantrue {
+    margin-top: 20px;
+  }
+  .assess .all .cont .allkeeper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin: 40px 0;
+    margin-bottom: 150px;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .allkeeper label {
+    font-size: 14px;
+    margin-bottom: 3px;
+    width: 100%;
+    text-align: center;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper {
+    font-size: 15px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 0.7px solid var(--textColor);
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span {
+    transition: 0.1s;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span:nth-child(2) {
+    text-align: right;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main .spanisopen svg {
+    transform: rotate(180deg);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .show_dropdown {
+    top: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu {
+    margin-top: 5px;
+    cursor: pointer;
+    border: 0.7px solid var(--textColor);
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.1s;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    max-height: 180px;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li {
+    padding: 5px;
+    transition: 0.1s;
+    border-bottom: 0.5px solid var(--textColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:hover {
+    background-color: lightblue;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:last-child {
+    border: none;
+  }
+  .notfound {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notfound .all {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notfound .all p {
+    text-align: center;
+    font-family: var(--robotomedium);
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .notfound .all a {
+    text-align: center;
+    color: #009900;
+    font-size: 18px;
+  }
+  .notfound .all span {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    margin: 8px 0;
   }
   .footer {
     padding: 5px 0;
@@ -640,7 +1001,7 @@ input::-webkit-inner-spin-button {
     font-size: 16px;
   }
   .header .all .middle {
-    width: 70px;
+    width: 60px;
   }
   .header .all .right svg {
     font-size: 30px;
@@ -655,6 +1016,163 @@ input::-webkit-inner-spin-button {
   }
   .header .all .right .dropdownmenu a {
     font-size: 16px;
+  }
+  .assess {
+    margin: 80px 0;
+  }
+  .assess .all {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--textColor);
+  }
+  .assess .all p {
+    font-family: var(--robotomedium);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .assess .all .cont {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: var(--robotomedium);
+    position: relative;
+  }
+  .assess .all .cont .resultkeeper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 15px;
+  }
+  .assess .all .cont .resultkeeper .resultspanfalse {
+    color: #009900;
+    padding: 0 10px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .assess .all .cont .resultkeeper .resultspantrue {
+    margin-top: 20px;
+  }
+  .assess .all .cont .allkeeper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin: 40px 0;
+    margin-bottom: 150px;
+  }
+  .assess .all .cont .allkeeper label {
+    font-size: 14px;
+    margin-bottom: 3px;
+    width: 100%;
+    text-align: center;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper {
+    font-size: 15px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 0.7px solid var(--textColor);
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span {
+    transition: 0.1s;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main span:nth-child(2) {
+    text-align: right;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_main .spanisopen svg {
+    transform: rotate(180deg);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .show_dropdown {
+    top: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu {
+    margin-top: 5px;
+    cursor: pointer;
+    border: 0.7px solid var(--textColor);
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.1s;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    max-height: 180px;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li {
+    padding: 5px;
+    transition: 0.1s;
+    border-bottom: 0.5px solid var(--textColor);
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:hover {
+    background-color: lightblue;
+  }
+  .assess .all .cont .allkeeper .dropdownkeeper .dropdown_menu ul li:last-child {
+    border: none;
+  }
+  .notfound {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notfound .all {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notfound .all p {
+    text-align: center;
+    font-family: var(--robotomedium);
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .notfound .all a {
+    text-align: center;
+    color: #009900;
+    font-size: 18px;
+  }
+  .notfound .all span {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    margin: 8px 0;
   }
   .footer .all div {
     font-size: 12px;

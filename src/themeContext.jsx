@@ -18,8 +18,7 @@ export const ThemeProvider = ({ children }) => {
     const toggleDarkMode = () => {
         const newTheme = !isDarkMode;
         setIsDarkMode(newTheme);
-        console.log("salam");
-        localStorage.setItem(JSON.stringify("dark_theme", newTheme));
+        localStorage.setItem("dark_theme", newTheme);
     };
 
     useEffect(() => {
