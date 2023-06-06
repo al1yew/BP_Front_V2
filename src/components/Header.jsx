@@ -3,12 +3,14 @@ import { BsChevronDown, BsSun, BsMoon } from "react-icons/bs";
 import logo from "../assets/images/sticker.jpg";
 import { Link } from "react-router-dom";
 import { useThemeContext } from "../themeContext";
+import { useUserContext } from "../userContext";
 
 const Header = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
 
     const { isDarkMode, toggleDarkMode } = useThemeContext();
+    const { user, logout } = useUserContext();
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOutsideClicks);
@@ -28,7 +30,9 @@ const Header = () => {
         <header className="header">
             <div className="container">
                 <div className="row all">
-                    <div className="left">Welcome, user</div>
+                    <div className="left">
+                        Welcome, {user ? user.name : "user"}
+                    </div>
 
                     <div className="middle">
                         <img className="img-fluid" src={logo} alt="bp" />
@@ -57,19 +61,37 @@ const Header = () => {
                             }`}
                         >
                             <Link
-                                to="/manage/account/login"
-                                className=""
+                                to="/"
                                 onClick={() => setIsDropdownOpen(false)}
                             >
-                                Login
+                                Assess
                             </Link>
-                            <Link
-                                to="/manage/account/login"
-                                className=""
-                                onClick={() => setIsDropdownOpen(false)}
-                            >
-                                Logout
-                            </Link>
+                            {user ? (
+                                <>
+                                    <Link
+                                        to="/manage"
+                                        onClick={() => setIsDropdownOpen(false)}
+                                    >
+                                        Admin Area
+                                    </Link>
+                                    <Link
+                                        to="/"
+                                        onClick={() => {
+                                            setIsDropdownOpen(false);
+                                            logout();
+                                        }}
+                                    >
+                                        Logout
+                                    </Link>
+                                </>
+                            ) : (
+                                <Link
+                                    to="/manage/account/login"
+                                    onClick={() => setIsDropdownOpen(false)}
+                                >
+                                    Login
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>
