@@ -9,7 +9,7 @@ const MakeAssessment = () => {
             }}
         >
             <p style={{ textAlign: "center" }}>
-                Here the assessment will take place. SOOOOOOOOON!
+                Here the assessment will take place. Soon!
             </p>
         </div>
     );

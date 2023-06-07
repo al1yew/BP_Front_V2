@@ -75,6 +75,15 @@ const Header = () => {
                                         Admin Area
                                     </Link>
                                     <Link
+                                        to={
+                                            "/manage/account/update/" +
+                                            user.userName
+                                        }
+                                        onClick={() => setIsDropdownOpen(false)}
+                                    >
+                                        Account
+                                    </Link>
+                                    <Link
                                         to="/"
                                         onClick={() => {
                                             setIsDropdownOpen(false);

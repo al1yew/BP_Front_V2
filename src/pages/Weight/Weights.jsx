@@ -6,8 +6,8 @@ import { useUserContext } from "../../userContext";
 import { apilink } from "../../constants";
 import Preloader from "../../components/Preloader";
 
-const Frequencies = () => {
-    const [frequencies, setFrequencies] = useState(null);
+const Weights = () => {
+    const [weights, setWeights] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     const { user } = useUserContext();
@@ -15,13 +15,13 @@ const Frequencies = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const { data } = await axios.get(apilink + "/frequencies/", {
+                const { data } = await axios.get(apilink + "/weights/", {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
                 });
 
-                setFrequencies(data);
+                setWeights(data);
             } catch (error) {
                 const errorMsg = error?.response?.data;
                 toast.error(errorMsg);
@@ -38,16 +38,13 @@ const Frequencies = () => {
         setIsLoading(true);
 
         try {
-            const { data } = await axios.delete(
-                apilink + `/frequencies/${id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                }
-            );
+            const { data } = await axios.delete(apilink + `/weights/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            });
 
-            setFrequencies(data);
+            setWeights(data);
             toast.success("Deleted!");
         } catch (error) {
             const errorObj = error?.response?.data?.errors;
@@ -68,12 +65,8 @@ const Frequencies = () => {
     return isLoading ? (
         <Preloader />
     ) : (
-        <Table
-            entity="Frequencies"
-            data={frequencies}
-            handleDelete={handleDelete}
-        />
+        <Table entity="Weights" data={weights} handleDelete={handleDelete} />
     );
 };
 
-export default Frequencies;
+export default Weights;

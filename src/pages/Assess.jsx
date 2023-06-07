@@ -5,9 +5,10 @@ import { apilink } from "../constants";
 import Preloader from "../components/Preloader";
 import { toast } from "react-toastify";
 
-export default function Assess() {
+const Assess = () => {
     const [data, setData] = useState(null);
     const [result, setResult] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     const [values, setValues] = useState({
         distanceId: 0,
@@ -24,7 +25,10 @@ export default function Assess() {
 
                 setData(data);
             } catch (error) {
-                toast.error(error.message);
+                const errorMsg = error?.response?.data;
+                toast.error(errorMsg);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -40,33 +44,35 @@ export default function Assess() {
         });
     }
 
-    function handleSubmit() {
-        const postData = async () => {
-            try {
-                const { data } = await axios.post(
-                    apilink + "/assessments/makeassessment",
-                    values
-                );
+    const handleSubmit = async () => {
+        setIsLoading(true);
 
-                setResult(data);
-            } catch (error) {
-                const errorObj = error?.response?.data?.errors;
-                const errorMsg = error?.response?.data;
+        try {
+            const { data } = await axios.post(
+                apilink + "/assessments/makeassessment",
+                values
+            );
 
-                if (errorObj) {
-                    Object.values(errorObj).forEach((obj) => {
-                        toast.error(obj.toString());
-                    });
-                } else {
-                    toast.error(errorMsg);
-                }
+            setResult(data);
+        } catch (error) {
+            const errorObj = error?.response?.data?.errors;
+            const errorMsg = error?.response?.data;
+
+            if (errorObj) {
+                Object.values(errorObj).forEach((obj) => {
+                    toast.error(obj.toString());
+                });
+            } else {
+                toast.error(errorMsg);
             }
-        };
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-        postData();
-    }
-
-    return data ? (
+    return isLoading ? (
+        <Preloader />
+    ) : (
         <section className="assess">
             <div className="container">
                 <div className="row all">
@@ -122,7 +128,7 @@ export default function Assess() {
                 </div>
             </div>
         </section>
-    ) : (
-        <Preloader />
     );
-}
+};
+
+export default Assess;

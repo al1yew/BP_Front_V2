@@ -6,7 +6,7 @@ import { useUserContext } from "../../userContext";
 import { apilink } from "../../constants";
 import Preloader from "../../components/Preloader";
 
-const UpdateFrequency = () => {
+const UpdateDistance = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { user } = useUserContext();
@@ -16,14 +16,11 @@ const UpdateFrequency = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const { data } = await axios.get(
-                    apilink + `/frequencies/${id}`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${user.token}`,
-                        },
-                    }
-                );
+                const { data } = await axios.get(apilink + `/distances/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                });
 
                 setUpdateValue(data?.name);
             } catch (error) {
@@ -48,7 +45,7 @@ const UpdateFrequency = () => {
         };
 
         try {
-            await axios.put(apilink + "/frequencies/" + id, obj, {
+            await axios.put(apilink + "/distances/" + id, obj, {
                 headers: {
                     Authorization: `Bearer ${user.token}`,
                 },
@@ -80,8 +77,8 @@ const UpdateFrequency = () => {
                 <div className="container">
                     <div className="row all">
                         <p className="col-lg-12 col-md-12 col-12">
-                            Write down the name of the Frequency that you want
-                            to update. It will be displayed in the table.
+                            Write down the name of the Distance that you want to
+                            update. It will be displayed in the table.
                         </p>
                         <form
                             onSubmit={handleSubmit}
@@ -111,4 +108,4 @@ const UpdateFrequency = () => {
     );
 };
 
-export default UpdateFrequency;
+export default UpdateDistance;

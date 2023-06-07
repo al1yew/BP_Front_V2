@@ -6,7 +6,7 @@ import { useUserContext } from "../../userContext";
 import { apilink } from "../../constants";
 import Preloader from "../../components/Preloader";
 
-const CreateFrequency = () => {
+const CreateDistance = () => {
     const navigate = useNavigate();
     const { user } = useUserContext();
     const [createValue, setCreateValue] = useState("");
@@ -18,7 +18,7 @@ const CreateFrequency = () => {
 
         try {
             await axios.post(
-                apilink + "/frequencies",
+                apilink + "/distances",
                 { name: createValue },
                 {
                     headers: {
@@ -52,7 +52,7 @@ const CreateFrequency = () => {
             <div className="container">
                 <div className="row all">
                     <p className="col-lg-12 col-md-12 col-12">
-                        Write down the name of the Frequency that you want to
+                        Write down the name of the Distance that you want to
                         create. It will be displayed in the table.
                     </p>
                     <form
@@ -65,8 +65,8 @@ const CreateFrequency = () => {
                             onChange={(e) => setCreateValue(e.target.value)}
                             value={createValue}
                             name="name"
+                            placeholder="Distance"
                             className="col-lg-8 col-md-8 col-8"
-                            placeholder="Frequency"
                             autoFocus
                         />
                         <button
@@ -83,4 +83,4 @@ const CreateFrequency = () => {
     );
 };
 
-export default CreateFrequency;
+export default CreateDistance;

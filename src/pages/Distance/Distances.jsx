@@ -6,8 +6,8 @@ import { useUserContext } from "../../userContext";
 import { apilink } from "../../constants";
 import Preloader from "../../components/Preloader";
 
-const Frequencies = () => {
-    const [frequencies, setFrequencies] = useState(null);
+const Distances = () => {
+    const [distances, setDistances] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     const { user } = useUserContext();
@@ -15,13 +15,13 @@ const Frequencies = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const { data } = await axios.get(apilink + "/frequencies/", {
+                const { data } = await axios.get(apilink + "/distances/", {
                     headers: {
                         Authorization: `Bearer ${user.token}`,
                     },
                 });
 
-                setFrequencies(data);
+                setDistances(data);
             } catch (error) {
                 const errorMsg = error?.response?.data;
                 toast.error(errorMsg);
@@ -38,16 +38,13 @@ const Frequencies = () => {
         setIsLoading(true);
 
         try {
-            const { data } = await axios.delete(
-                apilink + `/frequencies/${id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                }
-            );
+            const { data } = await axios.delete(apilink + `/distances/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            });
 
-            setFrequencies(data);
+            setDistances(data);
             toast.success("Deleted!");
         } catch (error) {
             const errorObj = error?.response?.data?.errors;
@@ -69,11 +66,11 @@ const Frequencies = () => {
         <Preloader />
     ) : (
         <Table
-            entity="Frequencies"
-            data={frequencies}
+            entity="Distances"
+            data={distances}
             handleDelete={handleDelete}
         />
     );
 };
 
-export default Frequencies;
+export default Distances;

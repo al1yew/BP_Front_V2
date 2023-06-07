@@ -1130,6 +1130,164 @@ main {
     }
 }
 
+.manipulateuser {
+    margin: 0;
+    padding: 0;
+    margin-top: 100px;
+    padding-bottom: 40px;
+    font-family: var(--robotomedium);
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+    .all {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 30px;
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+
+
+        button {
+            margin-top: 16px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+            input {
+                background-color: var(--backgroundColor);
+                color: var(--textColor);
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+
+            label {
+                font-size: 16px;
+                color: #009900;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    hr {
+        color: #009900;
+    }
+
+    .passworddropdown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+        input {
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        button {
+            margin: 0 auto;
+            margin-top: 16px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+            label {
+                font-size: 16px;
+                color: #009900;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+.resetpassword {
+    margin: 0;
+    padding: 0;
+    margin-top: 150px;
+    padding-bottom: 40px;
+    font-family: var(--robotomedium);
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+    .all {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+        button {
+            margin: 0 auto;
+            margin-top: 16px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+            label {
+                font-size: 16px;
+                color: #009900;
+                margin-bottom: 8px;
+            }
+
+            input {
+                background-color: var(--backgroundColor);
+                color: var(--textColor);
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
 .footer {
     width: 100%;
     background-color: var(--backgroundColor);

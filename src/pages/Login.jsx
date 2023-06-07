@@ -12,7 +12,7 @@ const Login = () => {
         login: "",
         password: "",
     });
-    const [isLoading, setIsloading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const { login } = useUserContext();
 
@@ -29,37 +29,34 @@ const Login = () => {
         });
     }
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsloading(true);
-        async function postData() {
-            try {
-                const { data } = await axios.post(
-                    apilink + "/accounts/login",
-                    formData
-                );
+        setIsLoading(true);
 
-                login(data);
-                toast.success(`Welcome, ${data.name}`);
-                navigate("/manage");
-                setIsloading(false);
-            } catch (error) {
-                const errorObj = error?.response?.data?.errors;
-                const errorMsg = error?.response?.data;
+        try {
+            const { data } = await axios.post(
+                apilink + "/accounts/login",
+                formData
+            );
 
-                if (errorObj) {
-                    Object.values(errorObj).forEach((obj) => {
-                        toast.error(obj.toString());
-                    });
-                } else {
-                    toast.error(errorMsg);
-                }
-                setIsloading(false);
+            login(data);
+            toast.success(`Welcome, ${data.name}`);
+            navigate("/manage");
+        } catch (error) {
+            const errorObj = error?.response?.data?.errors;
+            const errorMsg = error?.response?.data;
+
+            if (errorObj) {
+                Object.values(errorObj).forEach((obj) => {
+                    toast.error(obj.toString());
+                });
+            } else {
+                toast.error(errorMsg);
             }
+        } finally {
+            setIsLoading(false);
         }
-
-        postData();
-    }
+    };
 
     return isLoading ? (
         <Preloader />
