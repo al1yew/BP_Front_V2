@@ -763,6 +763,9 @@ main {
             padding: 0;
             width: 100%;
             text-align: center;
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
 
         .cont {
@@ -773,6 +776,9 @@ main {
             flex-wrap: wrap;
             font-family: var(--robotomedium);
             position: relative;
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
             .resultkeeper {
                 display: flex;
@@ -781,6 +787,9 @@ main {
                 flex-wrap: wrap;
                 width: 100%;
                 font-size: 15px;
+                background-color: var(--backgroundColor);
+                color: var(--textColor);
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
                 .resultspanfalse {
                     color: #009900;
@@ -802,6 +811,9 @@ main {
                 margin: 0;
                 margin: 40px 0;
                 margin-bottom: 150px;
+                background-color: var(--backgroundColor);
+                color: var(--textColor);
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
                 label {
                     font-size: 25px;
@@ -827,6 +839,9 @@ main {
                         border: 0.7px solid var(--textColor);
                         border-radius: 5px;
                         padding: 5px;
+                        background-color: var(--backgroundColor);
+                        color: var(--textColor);
+                        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
                         span {
                             transition: 0.1s;
@@ -862,6 +877,8 @@ main {
                         visibility: hidden;
                         transition: 0.1s;
                         background-color: var(--backgroundColor);
+                        color: var(--textColor);
+                        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
                         ul {
                             list-style: none;
