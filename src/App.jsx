@@ -143,9 +143,16 @@ function App() {
                 <Footer />
             </BrowserRouter>
             <ToastContainer
-                autoClose={1500}
+                position="bottom-center"
+                autoClose={1200}
+                hideProgressBar={false}
+                newestOnTop={false}
                 closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable={false}
                 pauseOnHover={false}
+                theme="dark"
             />
         </>
     );
