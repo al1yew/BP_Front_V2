@@ -36,6 +36,8 @@ function App() {
     //assessments zakinul v global context kakoy to cunki mi dostayem odin i tot je axios.get(/assessments)
     //vezde, i v "/", i v "manage/assessments" a takje v create i update. Zacem stolko muchat api? medlenno je
 
+    //zakoncheno, no nado bi protestirovat vse (2 raza protestiroval, vse rabotayet, loader bez problem)
+
     const { user } = useUserContext();
 
     return (

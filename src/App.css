@@ -563,7 +563,7 @@ input::-webkit-inner-spin-button {
 }
 
 main {
-  margin: 50px 0;
+  margin: 100px 0;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
