@@ -23,16 +23,18 @@ import CreateUser from "./pages/User/CreateUser";
 import UpdateUser from "./pages/User/UpdateUser";
 import ResetPassword from "./pages/User/ResetPassword";
 import UpdateLoggedUser from "./pages/User/UpdateLoggedUser";
+import Assessments from "./pages/Assessment/Assessments";
+import CreateAssessment from "./pages/Assessment/CreateAssessment";
+import UpdateAssessment from "./pages/Assessment/UpdateAssessment";
 
 function App() {
-    //dropdown otlichayetsa koordinalno
-
     //izza togo sht omoy preloader na ves ekran, nado eshe handle delat te situacii koqda apiden entity gelmir
     //naprimer vizivayu distances, a ix net, a xochetsa je create sdelat. poetomu orda if sherti goyacam i yoxlayacam.
     //a mojet api den nese qaytarmaq laizmdi vashe
     //data gelmese empty array gelir, if sherti yazmag lazidmi vse create button goymag
 
-    //xochu utils.jsx s axiosom, axios[bele yazmag olar], no tolko dla adminki ved tam est header, a v user teref headers yoxdu
+    //assessments zakinul v global context kakoy to cunki mi dostayem odin i tot je axios.get(/assessments)
+    //vezde, i v "/", i v "manage/assessments" a takje v create i update. Zacem stolko muchat api? medlenno je
 
     const { user } = useUserContext();
 
@@ -97,7 +99,6 @@ function App() {
                                     path="/manage/users/update/:id"
                                     element={<UpdateUser />}
                                 />
-
                                 <Route
                                     path="/manage/users/resetpassword/:id"
                                     element={<ResetPassword />}
@@ -105,6 +106,19 @@ function App() {
                                 <Route
                                     path="/manage/account/update/:username"
                                     element={<UpdateLoggedUser />}
+                                />
+
+                                <Route
+                                    path="/manage/assessments"
+                                    element={<Assessments />}
+                                />
+                                <Route
+                                    path="/manage/assessments/create"
+                                    element={<CreateAssessment />}
+                                />
+                                <Route
+                                    path="/manage/assessments/update/:id"
+                                    element={<UpdateAssessment />}
                                 />
                             </>
                         )}

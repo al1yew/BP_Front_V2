@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 import { useUserContext } from "../../userContext";
 import { apilink } from "../../constants";
 import Preloader from "../../components/Preloader";
+import { useNavigate } from "react-router-dom";
 
 const Distances = () => {
     const [distances, setDistances] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     const { user } = useUserContext();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
@@ -23,8 +25,17 @@ const Distances = () => {
 
                 setDistances(data);
             } catch (error) {
+                const errorObj = error?.response?.data?.errors;
                 const errorMsg = error?.response?.data;
-                toast.error(errorMsg);
+
+                if (errorObj) {
+                    Object.values(errorObj).forEach((obj) => {
+                        toast.error(obj.toString());
+                    });
+                } else {
+                    toast.error(error.message);
+                    toast.error(errorMsg);
+                }
                 navigate(-1);
             } finally {
                 setIsLoading(false);
@@ -55,6 +66,7 @@ const Distances = () => {
                     toast.error(obj.toString());
                 });
             } else {
+                toast.error(error.message);
                 toast.error(errorMsg);
             }
         } finally {

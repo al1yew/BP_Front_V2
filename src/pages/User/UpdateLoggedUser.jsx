@@ -43,9 +43,18 @@ const UpdateLoggedUser = () => {
 
                 setUpdateUser(data);
             } catch (error) {
+                const errorObj = error?.response?.data?.errors;
                 const errorMsg = error?.response?.data;
-                toast.error(errorMsg);
-                navigate(-1);
+
+                if (errorObj) {
+                    Object.values(errorObj).forEach((obj) => {
+                        toast.error(obj.toString());
+                    });
+                } else {
+                    toast.error(error.message);
+                    toast.error(errorMsg);
+                }
+                navigate("/manage");
             } finally {
                 setIsLoading(false);
             }
@@ -96,7 +105,7 @@ const UpdateLoggedUser = () => {
             });
 
             toast.success("You Are Updated!");
-            navigate(-1);
+            navigate("/manage");
         } catch (error) {
             const errorObj = error?.response?.data?.errors;
             const errorMsg = error?.response?.data;
@@ -131,7 +140,7 @@ const UpdateLoggedUser = () => {
             });
 
             toast.success("Password is changed!");
-            navigate(-1);
+            navigate("/manage");
         } catch (error) {
             const errorObj = error?.response?.data?.errors;
             const errorMsg = error?.response?.data;
@@ -141,6 +150,7 @@ const UpdateLoggedUser = () => {
                     toast.error(obj.toString());
                 });
             } else {
+                toast.error(error.message);
                 toast.error(errorMsg);
             }
         } finally {

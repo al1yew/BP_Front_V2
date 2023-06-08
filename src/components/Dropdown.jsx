@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 
-const Dropdown = ({ query, name, handleChange }) => {
+const Dropdown = ({ query, selectedValue, entityName, handleChange }) => {
     const [dropdown, setDropdown] = useState({
         isOpen: false,
-        placeholder: name,
+        placeholder: selectedValue,
     });
 
     const dropdownRef = useRef();
@@ -53,53 +53,59 @@ const Dropdown = ({ query, name, handleChange }) => {
     };
 
     return (
-        <div
-            ref={dropdownRef}
-            className="dropdownkeeper col-lg-12 col-md-12 col-12"
-        >
-            {dropdown.placeholder && (
-                <>
-                    <div
-                        className="col-lg-12 col-md-12 col-12 dropdown_main"
-                        onClick={handleDropdown}
-                    >
-                        <span className="col-lg-10 col-md-10 col-10">
-                            {dropdown.placeholder}
-                        </span>
-                        <span
-                            className={`col-lg-2 col-md-2 col-2 ${
-                                dropdown.isOpen ? "spanisopen" : ""
-                            }`}
-                        >
-                            <BsChevronDown />
-                        </span>
-                    </div>
-                    <div
-                        className={`col-lg-12 col-md-12 col-12 dropdown_menu ${
-                            dropdown.isOpen && "show_dropdown"
+        query && (
+            <div
+                ref={dropdownRef}
+                className="dropdownkeeper col-lg-12 col-md-12 col-12"
+            >
+                <div
+                    className="col-lg-12 col-md-12 col-12 dropdown_main"
+                    onClick={handleDropdown}
+                >
+                    <span className="col-lg-10 col-md-10 col-10">
+                        {dropdown.placeholder}
+                    </span>
+                    <span
+                        className={`col-lg-2 col-md-2 col-2 ${
+                            dropdown.isOpen ? "spanisopen" : ""
                         }`}
                     >
-                        <ul>
-                            <li onClick={() => handleSelect(name, 0, name)}>
-                                {name}
-                            </li>
-                            {query.map((el, i) => {
-                                return (
-                                    <li
-                                        key={i}
-                                        onClick={() =>
-                                            handleSelect(el.name, el.id, name)
-                                        }
-                                    >
-                                        {el.name}
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                </>
-            )}
-        </div>
+                        <BsChevronDown />
+                    </span>
+                </div>
+                <div
+                    className={`col-lg-12 col-md-12 col-12 dropdown_menu ${
+                        dropdown.isOpen && "show_dropdown"
+                    }`}
+                >
+                    <ul>
+                        <li
+                            onClick={() =>
+                                handleSelect(
+                                    entityName,
+                                    0,
+                                    entityName
+                                )
+                            }
+                        >
+                            {entityName}
+                        </li>
+                        {query.map((el, i) => {
+                            return (
+                                <li
+                                    key={i}
+                                    onClick={() =>
+                                        handleSelect(el.name, el.id, entityName)
+                                    }
+                                >
+                                    {el.name}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </div>
+        )
     );
 };
 export default Dropdown;

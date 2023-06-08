@@ -45,12 +45,13 @@ const Login = () => {
         } catch (error) {
             const errorObj = error?.response?.data?.errors;
             const errorMsg = error?.response?.data;
-
+            
             if (errorObj) {
                 Object.values(errorObj).forEach((obj) => {
                     toast.error(obj.toString());
                 });
             } else {
+                toast.error(error.message);
                 toast.error(errorMsg);
             }
         } finally {

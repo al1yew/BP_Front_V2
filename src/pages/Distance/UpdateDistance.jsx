@@ -24,8 +24,17 @@ const UpdateDistance = () => {
 
                 setUpdateValue(data?.name);
             } catch (error) {
+                const errorObj = error?.response?.data?.errors;
                 const errorMsg = error?.response?.data;
-                toast.error(errorMsg);
+
+                if (errorObj) {
+                    Object.values(errorObj).forEach((obj) => {
+                        toast.error(obj.toString());
+                    });
+                } else {
+                    toast.error(error.message);
+                    toast.error(errorMsg);
+                }
                 navigate(-1);
             } finally {
                 setIsLoading(false);

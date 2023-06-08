@@ -905,6 +905,9 @@ main {
   padding: 8px;
   outline: none;
   cursor: pointer;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .tablekeeper .all .tablecontainer {
   width: 100%;
