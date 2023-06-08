@@ -743,12 +743,18 @@ main {
 }
 
 .assess {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
     .all {
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: var(--textColor);
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
         p {
             font-family: var(--robotomedium);
@@ -971,6 +977,7 @@ main {
     flex-direction: column;
     background-color: var(--backgroundColor);
     color: var(--textColor);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
     .all {
         height: 100%;
@@ -978,6 +985,9 @@ main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
         p {
             text-align: center;
