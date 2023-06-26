@@ -1036,6 +1036,7 @@ main {
     background-color: var(--backgroundColor);
     color: var(--textColor);
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    min-height: 500px;
 
     th,
     td {
