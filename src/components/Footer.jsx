@@ -5,7 +5,7 @@ const Footer = () => {
                 <div className="row all">
                     <div className="col-lg-8 col-12 col-md-8">
                         © Developed by{" "}
-                        <a href="https://www.linkedin.com/in/vasif-aliyev/">
+                        <a href="https://vasifaliyev.com">
                             Vasif Aliyev
                         </a>{" "}
                         for BP Company.
