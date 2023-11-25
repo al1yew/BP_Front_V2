@@ -1,4 +1,4 @@
-export const apilink = "https://elgiz93-001-site3.htempurl.com/api";
+export const apilink = "https://vasifdev-001-site1.etempurl.com/api";
 // export const apilink = "http://localhost:37234/api";
 
 export const SET_DATA = "SET_DATA";
